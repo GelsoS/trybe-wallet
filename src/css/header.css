@@ -1,0 +1,13 @@
+.div {
+  background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.moeda {
+  background-color: rgb(219, 232, 248);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}

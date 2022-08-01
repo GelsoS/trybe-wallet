@@ -13,10 +13,14 @@ function currency(state = INIT, action) {
         a !== 'USDT'
       )),
     };
+
   case 'DADOS':
     return {
       ...state,
-      expenses: [{ ...action.value, exchangeRates: action.cotacao }],
+      expenses: [
+        ...state.expenses,
+        action.payload,
+      ],
 
     };
   default:
