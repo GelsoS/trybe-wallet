@@ -1,0 +1,81 @@
+* , *:after , *:before {
+  box-sizing: border-box;
+}
+
+html {
+
+  --font-title: georgia, 'Times New Roman', times, serif;
+
+  --font-size: 1.2rem;
+
+  --color: #19f;
+
+  --color-light: #adf;
+
+  --color-dark: #018;
+
+  --radius: 0.2rem;
+}
+
+body {
+  background-image: url('img.jpeg');
+  background-size: cover;
+  color: rgb(36, 12, 192);
+  font-weight: 900;
+  margin: 0.8rem;
+  text-transform: uppercase;
+}
+
+body , input , button {
+  font-family: var(--font);
+  font-size: var(--font-size);
+}
+
+button , input {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  display: flex;
+  padding: 0.8rem;
+  transition: 0.2s;
+  width: 50%;
+}
+
+input:focus {
+  background: white;
+  border-color: var(--color);
+  box-shadow: 0 0 0 3px var(--color-light);
+  outline: none;
+}
+
+button {
+  background: var(--color);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--color-dark);
+  cursor: pointer;
+  margin-top: 12px;
+  text-transform: uppercase;
+  transition: 0.1s;
+}
+
+button:hover , button:focus {
+  background: var(--color);
+  box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
+  outline: none;
+}
+
+button:active {
+  box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+
+select {
+  color: indigo;
+  font-weight: 700;
+  padding: 4px;
+}

@@ -10,10 +10,9 @@ export const getApi = (value) => ({
   value,
 });
 
-export const informacoes = (cotacao, value) => ({
+export const informacoes = (payload) => ({
   type: 'DADOS',
-  value,
-  cotacao,
+  payload,
 });
 
 export const currentThunk = () => async (dispatch) => {
@@ -24,6 +23,9 @@ export const currentThunk = () => async (dispatch) => {
 
 export const currentThunkClic = (value) => async (dispatch) => {
   const response = await getCurrency();
-
-  dispatch(informacoes(response, value));
+  const payload = {
+    ...value,
+    exchangeRates: response,
+  };
+  dispatch(informacoes(payload));
 };
