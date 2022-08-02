@@ -21,8 +21,19 @@ function currency(state = INIT, action) {
         ...state.expenses,
         action.payload,
       ],
+    };
+
+  case 'DELL':
+    return {
+      currencies: [...state.currencies],
+      expenses: action.payload,
+    };
+
+  case 'EDIT':
+    return {
 
     };
+
   default:
     return state;
   }

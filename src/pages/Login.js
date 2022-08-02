@@ -56,9 +56,10 @@ class Login extends React.Component {
 
     return (
       <div>
-        <section>
+        <section className="section">
           E-mail:
           <input
+            className="input"
             name="email"
             type="email"
             data-testid="email-input"
@@ -68,6 +69,7 @@ class Login extends React.Component {
           />
           Senha:
           <input
+            className="input"
             name="password"
             type="password"
             placeholder="Senha"
@@ -76,6 +78,7 @@ class Login extends React.Component {
 
           />
           <button
+            className="button"
             type="button"
             onClick={ this.login }
             disabled={ habilitar }

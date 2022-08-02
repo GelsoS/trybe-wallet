@@ -6,7 +6,6 @@ import '../css/header.css';
 class Header extends Component {
   render() {
     const { info, allExpenses } = this.props;
-
     return (
       <div className="div">
         <span data-testid="email-field">{info}</span>
@@ -17,6 +16,7 @@ class Header extends Component {
           </span>
           <span data-testid="header-currency-field">BRL</span>
         </section>
+
       </div>
     );
   }
