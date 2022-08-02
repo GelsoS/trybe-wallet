@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { currentThunk, currentThunkClic } from '../redux/actions';
+import '../css/form.css';
 
 const alimentacao = 'Alimentação';
 class WalletForm extends Component {
@@ -122,6 +123,7 @@ class WalletForm extends Component {
         </select>
 
         <button
+          className="add"
           type="button"
           onClick={ this.buttonClic }
         >

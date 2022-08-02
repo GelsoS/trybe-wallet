@@ -1,0 +1,10 @@
+fieldset {
+  background-color: rgb(153, 252, 219);
+  display: flex;
+  justify-content: space-between;
+}
+
+.add {
+  cursor: pointer;
+  padding: 5px;
+}

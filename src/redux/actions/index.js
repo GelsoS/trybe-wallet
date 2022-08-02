@@ -15,6 +15,16 @@ export const informacoes = (payload) => ({
   payload,
 });
 
+export const deleteItem = (payload) => ({
+  type: 'DELL',
+  payload,
+});
+
+export const editItem = (info) => ({
+  type: 'EDIT',
+  info,
+});
+
 export const currentThunk = () => async (dispatch) => {
   const response = await getCurrency();
 
@@ -28,4 +38,12 @@ export const currentThunkClic = (value) => async (dispatch) => {
     exchangeRates: response,
   };
   dispatch(informacoes(payload));
+};
+
+export const deleteThunk = (carga) => (dispatch) => {
+  dispatch(deleteItem(carga));
+};
+
+export const editarInfo = (info) => (dispatch) => {
+  dispatch(editItem(info));
 };

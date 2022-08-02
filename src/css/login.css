@@ -1,12 +1,13 @@
 * , *:after , *:before {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
 
   --font-title: georgia, 'Times New Roman', times, serif;
 
-  --font-size: 1.2rem;
+  --font-size: 1rem;
 
   --color: #19f;
 
@@ -18,37 +19,39 @@ html {
 }
 
 body {
+  align-items: center;
   background-image: url('img.jpeg');
   background-size: cover;
-  color: rgb(36, 12, 192);
+  display: flex;
   font-weight: 900;
-  margin: 0.8rem;
-  text-transform: uppercase;
+  justify-content: center;
+
+  /* text-transform: uppercase; */
 }
 
-body , input , button {
+body , .input , .button {
   font-family: var(--font);
   font-size: var(--font-size);
 }
 
-button , input {
-  background: #eee;
+.button , .input {
+  background: rgb(243, 234, 234);
   border: 1px solid #ccc;
   border-radius: var(--radius);
   display: flex;
   padding: 0.8rem;
   transition: 0.2s;
-  width: 50%;
+  width: 100%;
 }
 
-input:focus {
+.input:focus {
   background: white;
   border-color: var(--color);
   box-shadow: 0 0 0 3px var(--color-light);
   outline: none;
 }
 
-button {
+.button {
   background: var(--color);
   border: none;
   border-radius: var(--radius);
@@ -59,18 +62,17 @@ button {
   transition: 0.1s;
 }
 
-button:hover , button:focus {
+.button:hover , .button:focus {
   background: var(--color);
   box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
   outline: none;
 }
 
-button:active {
+.button:active {
   box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
 }
 
-button:disabled {
-  cursor: wait;
+.button:disabled {
   opacity: 0.5;
 }
 
@@ -78,4 +80,8 @@ select {
   color: indigo;
   font-weight: 700;
   padding: 4px;
+}
+
+.section {
+  text-align: center;
 }
