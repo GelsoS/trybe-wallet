@@ -23,7 +23,6 @@ body {
   background-image: url('img.jpeg');
   background-size: cover;
   display: flex;
-  font-weight: 900;
   justify-content: center;
 
   /* text-transform: uppercase; */

@@ -1,8 +1,8 @@
-import { render, screen } from  '@testing-library/react'
+import { screen } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import App from '../App'
-import { renderWithRouter, renderWithRouterAndRedux, withrouter } from "./helpers/renderWith"
+import {  renderWithRouterAndRedux } from "./helpers/renderWith"
 
 describe('Desenvolva testes para atingir 60% de cobertura total da aplicação',() =>{
     it('tela de login tem campos de email e senha?',()=>{
@@ -25,11 +25,14 @@ describe('Desenvolva testes para atingir 60% de cobertura total da aplicação',
        const email = screen.getByTestId('email-input');
        const password = screen.getByTestId('password-input');
         const button = screen.getByRole('button', { name: /entrar/i, })
+
+        expect(button).toBeDisabled()
+
   
         userEvent.type(email, 'gelso0@email.com')
         userEvent.type(password, '123456')        
         userEvent.click(button);
-        
+        expect(button).not.toBeDisabled()
         const { location: { pathname }} = history;
         expect(pathname).toBe('/carteira')
     })

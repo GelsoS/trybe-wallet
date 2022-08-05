@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { currentThunk, currentThunkClic } from '../redux/actions';
+import { currentThunk, currentThunkClic, edicao } from '../redux/actions';
 import '../css/form.css';
 
 const alimentacao = 'Alimentação';
@@ -9,8 +9,8 @@ class WalletForm extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.buttonClic = this.buttonClic.bind(this);
     this.limparState = this.limparState.bind(this);
+    this.salvarEdicao = this.salvarEdicao.bind(this);
     this.state = {
       id: 0,
       value: '',
@@ -50,16 +50,32 @@ class WalletForm extends Component {
     );
   }
 
-  buttonClic() {
-    const { botaoClic } = this.props;
-    botaoClic(this.state);
+  salvarEdicao() {
+    const { value, description, currency, method, tag } = this.state;
+    const { editor, edit, botaoClic, expenses } = this.props;
 
-    this.limparState();
+    if (editor) {
+      const { idToEdit } = this.props;
+      const editado = expenses.filter((element) => element.id !== idToEdit);
+      console.log(idToEdit);
+      const ed = {
+        id: Number(idToEdit),
+        value,
+        description,
+        currency,
+        method,
+        tag,
+      };
+      edit(ed, editado);
+    } else {
+      botaoClic(this.state);
+      this.limparState();
+    }
   }
 
   render() {
     const { value, description, currency, method, tag } = this.state;
-    const { allCurency } = this.props;
+    const { allCurency, editor } = this.props;
     return (
       <fieldset>
         Valor:
@@ -125,9 +141,9 @@ class WalletForm extends Component {
         <button
           className="add"
           type="button"
-          onClick={ this.buttonClic }
+          onClick={ this.salvarEdicao }
         >
-          Adicionar despesa
+          {!editor ? 'Adicionar despesa' : 'Editar despesa'}
 
         </button>
 
@@ -137,15 +153,24 @@ class WalletForm extends Component {
 }
 const mapStateToProps = (state) => ({
   allCurency: state.wallet.currencies,
+  expenses: state.wallet.expenses,
+  exchangeRates: state.wallet.expenses,
+  editor: state.wallet.editor,
+  idToEdit: state.wallet.idToEdit,
 });
 const mapDispatchToProps = (dispatch) => ({
   moedaApi: () => dispatch(currentThunk()),
   botaoClic: (infos) => dispatch(currentThunkClic(infos)),
+  edit: (edit, obj) => dispatch(edicao(edit, obj)),
 });
 
 WalletForm.propTypes = {
   moedaApi: PropTypes.func.isRequired,
   botaoClic: PropTypes.func.isRequired,
+  editor: PropTypes.bool.isRequired,
+  idToEdit: PropTypes.number.isRequired,
+  expenses: PropTypes.arrayOf(Array).isRequired,
+  edit: PropTypes.func.isRequired,
   allCurency: PropTypes.arrayOf(Array).isRequired,
 };
 

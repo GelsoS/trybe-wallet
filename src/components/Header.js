@@ -6,6 +6,7 @@ import '../css/header.css';
 class Header extends Component {
   render() {
     const { info, allExpenses } = this.props;
+    console.log('header ', allExpenses);
     return (
       <div className="div">
         <span data-testid="email-field">{info}</span>
