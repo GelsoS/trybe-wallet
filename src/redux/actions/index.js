@@ -20,9 +20,14 @@ export const deleteItem = (payload) => ({
   payload,
 });
 
-export const editItem = (info) => ({
+export const editItem = (payload) => ({
   type: 'EDIT',
-  info,
+  payload,
+});
+
+export const salvaID = (payload) => ({
+  type: 'salvarID',
+  payload,
 });
 
 export const currentThunk = () => async (dispatch) => {
@@ -40,10 +45,21 @@ export const currentThunkClic = (value) => async (dispatch) => {
   dispatch(informacoes(payload));
 };
 
-export const deleteThunk = (carga) => (dispatch) => {
-  dispatch(deleteItem(carga));
-};
+export const edicao = (ed, objeto) => async (dispatch) => {
+  const response = await getCurrency();
 
-export const editarInfo = (info) => (dispatch) => {
-  dispatch(editItem(info));
+  const { value, description, currency, method, tag, id } = ed;
+  const payload = {
+    id,
+    value,
+    description,
+    currency,
+    method,
+    tag,
+    exchangeRates: response,
+  };
+  const objetoUnido = objeto.concat(objeto, payload);
+  const newset = [...new Set(objetoUnido)];
+  newset.sort((a, b) => a.id - b.id);
+  dispatch(editItem(newset));
 };

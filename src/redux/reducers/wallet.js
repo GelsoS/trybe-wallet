@@ -2,6 +2,8 @@
 const INIT = {
   currencies: [],
   expenses: [],
+  editor: false,
+  idToEdit: 0,
 };
 
 function currency(state = INIT, action) {
@@ -31,7 +33,17 @@ function currency(state = INIT, action) {
 
   case 'EDIT':
     return {
+      currencies: [...state.currencies],
+      expenses: action.payload,
+      editor: !state.editor,
+      idToEdit: action.payload.id,
+    };
 
+  case 'salvarID':
+    return {
+      ...state,
+      idToEdit: action.payload,
+      editor: true,
     };
 
   default:
