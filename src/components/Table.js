@@ -20,10 +20,6 @@ class Table extends Component {
   editItem(curr) {
     const { expenses, salvarId } = this.props;
     const edit = expenses.filter((c) => c === curr);
-<<<<<<< HEAD
-=======
-
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
     salvarId(edit[0].id);
   }
 
@@ -61,11 +57,7 @@ class Table extends Component {
               <td>{curr.exchangeRates[curr.currency].codein}</td>
               <td>
                 <button
-<<<<<<< HEAD
                   key={ Math.random() }
-=======
-                  // key={ curr.id }
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
                   onClick={ () => this.editItem(curr) }
                   className="edit"
                   type="button"
@@ -74,11 +66,7 @@ class Table extends Component {
                   Editar
                 </button>
                 <button
-<<<<<<< HEAD
                   key={ curr.id }
-=======
-                  // key={ curr.id }
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
                   onClick={ () => this.delete(curr) }
                   className="del"
                   type="button"

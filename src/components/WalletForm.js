@@ -52,19 +52,10 @@ class WalletForm extends Component {
 
   salvarEdicao() {
     const { value, description, currency, method, tag } = this.state;
-<<<<<<< HEAD
     const { editor, edit, botaoClic, expenses, idToEdit } = this.props;
     const editado = expenses.filter((element) => element.id !== idToEdit);
 
     if (editor) {
-=======
-    const { editor, edit, botaoClic, expenses } = this.props;
-
-    if (editor) {
-      const { idToEdit } = this.props;
-      const editado = expenses.filter((element) => element.id !== idToEdit);
-      console.log(idToEdit);
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
       const ed = {
         id: Number(idToEdit),
         value,
@@ -172,7 +163,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 WalletForm.propTypes = {
-<<<<<<< HEAD
   moedaApi: PropTypes.func,
   botaoClic: PropTypes.func,
   editor: PropTypes.bool,
@@ -181,15 +171,5 @@ WalletForm.propTypes = {
   edit: PropTypes.func,
   allCurency: PropTypes.arrayOf(Array),
 }.isRequired;
-=======
-  moedaApi: PropTypes.func.isRequired,
-  botaoClic: PropTypes.func.isRequired,
-  editor: PropTypes.bool.isRequired,
-  idToEdit: PropTypes.number.isRequired,
-  expenses: PropTypes.arrayOf(Array).isRequired,
-  edit: PropTypes.func.isRequired,
-  allCurency: PropTypes.arrayOf(Array).isRequired,
-};
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

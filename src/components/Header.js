@@ -6,10 +6,6 @@ import '../css/header.css';
 class Header extends Component {
   render() {
     const { info, allExpenses } = this.props;
-<<<<<<< HEAD
-=======
-    console.log('header ', allExpenses);
->>>>>>> 031d48fbdf0af7bab669ac57804b40d1617034a8
     return (
       <div className="div">
         <span data-testid="email-field">{info}</span>
