@@ -19,7 +19,7 @@ describe('Desenvolva testes para atingir 60% de cobertura total da aplicação',
         expect(button).toBeInTheDocument();
     })
     
-    it('testar componente header', ()=>{
+    it('testar componente Login', ()=>{
        const { history} = renderWithRouterAndRedux(<App />)
        
        const email = screen.getByTestId('email-input');
