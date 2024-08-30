@@ -24,7 +24,7 @@ Durante o desenvolvimento deste projeto, utilizei as seguintes habilidades e té
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.dev/GelsoS/trybe-wallet
+   git clone git@github.com:GelsoS/trybe-wallet.git
    ```
 
 2. **Navegue até o diretório do projeto:**
