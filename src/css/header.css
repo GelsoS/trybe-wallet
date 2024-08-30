@@ -13,3 +13,7 @@
   justify-content: space-between;
   width: 200px;
 }
+
+span {
+  padding: 8px;
+}
